@@ -8,6 +8,7 @@ import {
   GetFormsInput,
   SubmitFormResponseData,
   UpdateFormData,
+  DeleteFormsInput
 } from './interfaces'
 import BadRequestError from '../../../errors/BadRequestError'
 import prismaClient from '../../../db'
@@ -72,6 +73,12 @@ const mutations = {
     ensureAuthenticated(ctx)
     await FormService.updateFormById(data.id, data)
     return true
+  },
+
+  deleteFormsByIds: async (_: any, { data }: { data: DeleteFormsInput }, ctx: ServerContext) => {
+    ensureAuthenticated(ctx);
+    await FormService.deleteMultipleFormByIds(data.formId);
+    return true;
   },
 
   submitFormResponse: async (

@@ -61,3 +61,7 @@ export interface SubmitFormResponseData {
 export interface GetFormResponsesByFormIdInput {
   formId: string
 }
+
+export interface DeleteFormsInput {
+  formId: [string]
+}

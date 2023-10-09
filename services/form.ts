@@ -30,6 +30,16 @@ class FormService {
     })
   }
 
+  public static deleteMultipleFormByIds(formId: [string]){
+    return prismaClient.form.deleteMany({
+      where: {
+        id: {
+          in: formId
+        }
+      }
+    })
+  }
+
   public static createFormResponse = prismaClient.formResponse.create
 
   public static getFormResponsesByFormId(formId: string, ctx: ServerContext) {

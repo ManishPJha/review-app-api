@@ -132,4 +132,8 @@ export const types = `#graphql
     input GetFormResponsesByFormIdInput {
         formId: ID!
     }
+
+    input DeleteFormsInput {
+        formId: [String]!
+    }
 `
